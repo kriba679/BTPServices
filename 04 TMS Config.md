@@ -1,4 +1,4 @@
-# 04.1 SAP Cloud Transport Management (cTMS) — Full Configuration Guide
+# 04 SAP Cloud Transport Management (cTMS) — Full Configuration Guide
 
 **Scenario:** Two BTP Trial Global Accounts. Global Account A (Source) has **two subaccounts** — a dedicated Central Services subaccount for cTMS, and a DEV subaccount for Integration Suite. Global Account B (Target) has one PROD subaccount with Integration Suite. This reflects the SAP best practice architecture.
 
