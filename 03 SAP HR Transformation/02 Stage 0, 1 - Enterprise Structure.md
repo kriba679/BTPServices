@@ -23,7 +23,7 @@ debugInConsole: false # Print debug info in Obsidian console
   - `MOL` = 07 (Canada — country grouping / molga)
   - `UGR` = 07 (User group — drives Personnel Action menus in PA40)
   - `PLOG` = 01 (Plan version, after OM is set up)
-	![](screenshots/screenshots/20260505123809.png)
+	![](screenshots/20260505123809.png)
 
 1. SCC4: Verify client settings allow customizing (only in dev)
 
@@ -90,7 +90,7 @@ The Chart of Accounts (COA) is the master list of all GL account numbers used in
 4. **Save (Ctrl+S)**
 
 Assigning INT Chat Of accounts to KMZP
-![](screenshots/screenshots/20260525173139.png)
+![](screenshots/20260525173139.png)
 
 
 > **One COA per company code:** A company code can only be assigned to one chart of accounts. This assignment is permanent once documents are posted — do not change it after go-live.
