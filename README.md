@@ -35,7 +35,7 @@ This repository is a living knowledge base for SAP integration architects, BTP e
     │   │    Management, PA-OM Integration, Personnel Administration, Employee
     │   │    Hiring, Time Management)
     │   └── Phase 2 SF Integration
-    │       (Migration, Replication, Employee Migration Scenarios)
+            (Migration, Replication, Employee Migration Scenarios)
 ```
 
 ---
