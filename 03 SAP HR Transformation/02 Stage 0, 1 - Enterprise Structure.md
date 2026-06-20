@@ -23,7 +23,7 @@ debugInConsole: false # Print debug info in Obsidian console
   - `MOL` = 07 (Canada — country grouping / molga)
   - `UGR` = 07 (User group — drives Personnel Action menus in PA40)
   - `PLOG` = 01 (Plan version, after OM is set up)
-	![](20260505123809.png)
+	![](screenshots/screenshots/20260505123809.png)
 
 1. SCC4: Verify client settings allow customizing (only in dev)
 
@@ -90,7 +90,7 @@ The Chart of Accounts (COA) is the master list of all GL account numbers used in
 4. **Save (Ctrl+S)**
 
 Assigning INT Chat Of accounts to KMZP
-![](20260525173139.png)
+![](screenshots/screenshots/20260525173139.png)
 
 
 > **One COA per company code:** A company code can only be assigned to one chart of accounts. This assignment is permanent once documents are posted — do not change it after go-live.
@@ -152,7 +152,8 @@ The Controlling Area is the top-level organizational unit in SAP Controlling (CO
 | Chart of Accounts | `KMCA` |
 | Fiscal Year Variant | `K4` |
 | Cost Center Standard Hierarchy | `KMZP_H` |
-![](20260525174500.png)
+![](screenshots/20260525174500.png)
+
 
 5. **Save (Ctrl+S)**
    - SAP will create the standard hierarchy node `KMZP_H` automatically
@@ -175,7 +176,7 @@ After creating the controlling area, you must activate Cost Center Accounting as
 | Profit Center Accounting | Set to Active if EC-PCA is in scope (optional)                       |
 | All other components     | Leave as per your project scope                                      |
 |                          |                                                                      |
-![](20260525174522.png)
+![](screenshots/20260525174522.png)
 3. **Save (Ctrl+S)**
 
 ---
@@ -190,7 +191,7 @@ After creating the controlling area, you must activate Cost Center Accounting as
 4. Enter Company Code: `KMZP`
 5. **Save (Ctrl+S)**
 
-![](20260525174535.png)
+![](screenshots/20260525174535.png)
 
 > **Prerequisite check before saving:** SAP validates that the company code's fiscal year variant and chart of accounts match those set on the controlling area. If you get an error here, verify that:
 > - Company code KMZP in OB62 uses COA = `KMCA` ✅ (done in Step 0.3)
@@ -317,22 +318,22 @@ HR: KMZP | P1 | Enterprise Structure Setup
 ### 4.1 Company & Company Code (FI side, prerequisite for HCM)
 
 1. Enterprise Str: SPRO → Enterprise Structure → Definition → Financial Accounting → Define Company *(creates Group Company, e.g. BLDP)*
-	![](20260505125220.png)
+	![](screenshots/20260505125220.png)
 
 2. Enterprise Str: SPRO → Enterprise Structure → Definition → Financial Accounting → Edit, Copy, Delete, Check **Company Code** *(4-char, e.g. KMZP / BLDP)*
 
-	![](20260507120134.png)
+	![](screenshots/20260507120134.png)
 
-	![](20260507120115.png)
+	![](screenshots/20260507120115.png)
 
 3. Enterprise Str: SPRO → Enterprise Structure → Assignment → Financial Accounting → **Assign Company Code to Company**
-	![](20260507120243.png)
+	![](screenshots/20260507120243.png)
 
 4. OX02 / OX15 — verify CC and Company exist
 
 ---
 
-![](20260507120931.png)
+![](screenshots/20260507120931.png)
 - Union vs Non-union → Personnel Structure (ESG, via CAP grouping). Don't fork PA/PSA on this.
 - Hourly vs Salaried → Personnel Structure (ESG, via PCR grouping).
 - FT vs PT → Personnel Structure (ESG, via Work Schedule grouping).
@@ -352,23 +353,23 @@ SAP splits workforce design across two structures. Use them correctly
 
 1. Enterprise Str: SPRO → Enterprise Structure → Definition → Human Resources Management → **Personnel Areas** *(4-char, e.g. 1510 Ontario, 1520 BC, 1530 Quebec)*
 
-	![](20260507122349.png)
+	![](screenshots/20260507122349.png)
 
 	77 Dunsmuir Street, 17th Floor, Vancouver, BC V7Y 1K4
 	934 rue des Églises Est, St Faustin, Quebec, J0T 2G0
 
 2. Enterprise Str: SPRO → Enterprise Structure → Definition → Human Resources Management → **Personnel Subareas** *(4-char per PA, e.g. PROF, MANA, EXEC, DIRE)*
 
-	![](20260507122625.png)
+	![](screenshots/20260507122625.png)
 
-	![](20260507122943.png)
+	![](screenshots/20260507122943.png)
 
-	![](20260508183532.png)
+	![](screenshots/20260508183532.png)
 
 
 3. Enterprise Str: SPRO → Enterprise Structure → Assignment → Human Resources Management → **Assign Personnel Area to Company Code**
 
-	![](20260508183859.png)
+	![](screenshots/20260508183859.png)
 
 4. Verify table T500P (Personnel Areas) and T001P (Personnel Subareas)
 
@@ -386,7 +387,7 @@ SAP splits workforce design across two structures. Use them correctly
 	1 - Employee
 	D - Contractor
 	
-	![](20260508184818.png)
+	![](screenshots/20260508184818.png)
 
 
 2. Enterprise Str: SPRO → Enterprise Structure → Definition → Human Resources Management → **Employee Subgroups** *(2-char, e.g. YF FT Salaried, YP PT Salaried, YU Union, YO Contractor)* — table T503K
@@ -397,17 +398,17 @@ SAP splits workforce design across two structures. Use them correctly
 | Part-time salaried | PT Sal | YP  |
 | Union worker       | Union  | YU  |
 | Contractor         | Contr  | YO  |
-	![](20260508190427.png)
+	![](screenshots/20260508190427.png)
 
 3. Enterprise Str: SPRO → Enterprise Structure → Assignment → Human Resources Management → **Assign Employee Subgroup to Employee Group** *(determines which ESG combos are valid for each EG)* — table T503Z
 
-![](20260521164216.png)
+![](screenshots/20260521164216.png)
 
-![](20260521164309.png)
+![](screenshots/20260521164309.png)
 
 4. Enterprise Str: SPRO → Personnel Management → Personnel Administration → Organizational Data → Organizational Assignment → Employee Groups/Subgroups → **Define Employee Attributes** *(country grouping, payroll status, employment status — defines whether ESG is "active" type)* — view V_503_B, table T503
 
-	![](20260521164443.png)
+	![](screenshots/20260521164443.png)
 
 ### 4.4 ESG Groupings (these unlock downstream tables)
 
@@ -438,7 +439,7 @@ SAP splits workforce design across two structures. Use them correctly
 	4 = Non pay scale employees
 	5 = Public servant
 
-	![](20260522101258.png)
+	![](screenshots/20260522101258.png)
 
 	**Actual KMZP implementation — PCR and CAP groupings:**
 
@@ -453,7 +454,7 @@ SAP splits workforce design across two structures. Use them correctly
 2. ESG grouping for **Work Schedule** *(1 industrial, 2 salaried)*
 	SPRO → Time Management → Work Schedules → Work Schedule Rules and Work Schedules → **Define Employee Subgroup Groupings**
 
-![](20260522101221.png)
+![](screenshots/20260522101221.png)
 
 	**Actual KMZP implementation — Work Schedule groupings:**
 
@@ -474,7 +475,7 @@ SAP splits workforce design across two structures. Use them correctly
 5. PSA grouping for **Work Schedule** *(assigns a grouping number to each PSA so all subareas sharing the same work schedule rules are in the same group)*
 	SPRO → Time Management → Work Schedules → Personnel Subarea Groupings → **Group Personnel Subareas for Work Schedules** — view V_001P_N, table T001P
 
-	![](20260508215641.png)
+	![](screenshots/20260508215641.png)
 
 6. PSA grouping for **Daily Work Schedule** *(groups subareas that share the same Daily Work Schedule definitions)*
 	SPRO → Time Management → Work Schedules → Personnel Subarea Groupings → **Group Personnel Subareas for Daily Work Schedules** — table T508Z
